@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/PExecGrafico/nbproject/private/
+/PExecGrafico/build/
+/PExecGrafico/dist/
