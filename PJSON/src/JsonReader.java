@@ -44,7 +44,7 @@ public class JsonReader {
       }
       /***********************************************************************************/
      
-     
+      System.out.println("************************************************");
       String jsonString2 = callURL("http://maps.googleapis.com/maps/api/geocode/json?latlng=60,30&sensor=false");
       try {  
           JSONArray jsonArray = new JSONObject(jsonString2).getJSONArray("results");
@@ -59,9 +59,9 @@ public class JsonReader {
       
     //Método que conectará con el WebService de Google que nos permite obtener
       //los datos de una localización dadas sus coordenadas
-//      System.out.println("************************************************");
-//      System.out.println("Ejemplo coordenadas 60,30 ");
-//      System.out.println(busquedaGoogle("38.15", "-0.89"));
+      System.out.println("************************************************");
+      System.out.println("Ejemplo coordenadas 60,30 ");
+      System.out.println(busquedaGoogle("38.15", "-0.89"));
       
   }
   
@@ -76,16 +76,11 @@ public class JsonReader {
 				"latlng=" + latitud + "," + longitud + "&sensor=false";
   			//"latlng=38.15,-0.89&sensor=false");
   	HttpGet peticion = null;
-	try {
-		peticion = new HttpGet(url);
-	} catch (URISyntaxException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}
+	peticion = new HttpGet(url);
   	//Modificamos mediante setHeader el atributo http content-type para indicar
   	//que el formato de los datos que utilizaremos en la comunicación será JSON.
   	peticion.setHeader("content-type", "application/json");
-  	System.out.println(peticion.toString());
+  	
   	try {
   		//Ejecutamos la petición y obtenemos la respuesta en forma de cadena
   		HttpResponse respuesta = comunicacion.execute(peticion);
