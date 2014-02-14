@@ -1,0 +1,5 @@
+Copiar el archivo categoria-articulo.php en tu servidor php.
+
+En el archivo client.java modificar las variables ip y url con tu ip y la direccion donde se encuentra tu categoria-articulo.php.
+
+Para consultar otros datos cambiar las variables id y modelo que se pasarán como parametros.
