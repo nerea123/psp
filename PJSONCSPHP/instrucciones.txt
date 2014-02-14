@@ -1,5 +1,9 @@
 Copiar el archivo categoria-articulo.php en tu servidor php.
 
+Modificar el archivo categoria-articulo.php con tus datos de conexion a la BD : 
+
+$con=@mysql_connect("localhost","root","sistemas"); donde localhost es tu servidor, root el usuario y sistemas la contraseña.
+
 En el archivo client.java modificar las variables ip y url con tu ip y la direccion donde se encuentra tu categoria-articulo.php.
 
 Para consultar otros datos cambiar las variables id y modelo que se pasarán como parametros.
