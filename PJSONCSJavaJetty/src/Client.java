@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
@@ -14,6 +15,7 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 
 
 public class Client {
@@ -25,7 +27,19 @@ public class Client {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		System.out.print(peticion());
+		Categoria categoria;
+		Articulo articulo;
+		Gson gson=new Gson();
+		String peticion=peticion();
+		JsonObject json=gson.fromJson(peticion, JsonObject.class);
+		if(json.get("precio") == null){
+			categoria=new Categoria(json.get("categoria").getAsString(),json.get("id").getAsInt());
+			System.out.println("Categoria: "+categoria.getCategoria()+" con id "+categoria.getId());
+		}else{
+			articulo=new Articulo(json.get("nombre").getAsString(),json.get("precio").getAsFloat(),json.get("id").getAsInt());
+			System.out.println("Articulo: "+articulo.getNombre()+" con precio "+articulo.getPrecio()+" e id "+articulo.getId());
+		}
+		
 		
 	}
 	
